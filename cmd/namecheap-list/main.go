@@ -1,19 +1,17 @@
+// namecheap-list prints all your domain names, one per line.
 package main
 
 import (
 	"fmt"
-	namecheap "github.com/billputer/go-namecheap"
 	"os"
+
+	namecheap "github.com/billputer/go-namecheap"
 )
 
 func main() {
 
-	if os.Getenv("NAMECHEAPUSER") == "" {
-		fmt.Println("Set environmental variables before running this program.")
-		os.Exit(1)
-	}
-	if os.Getenv("NAMECHEAPKEY") == "" {
-		fmt.Println("Set environmental variables before running this program.")
+	if os.Getenv("NAMECHEAPUSER") == "" || os.Getenv("NAMECHEAPKEY") == "" {
+		fmt.Println("Set NAMECHEAPUSER and NAMECHEAPKEY environmental variables before running this program.")
 		os.Exit(1)
 	}
 
